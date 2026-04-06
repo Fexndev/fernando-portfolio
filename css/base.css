@@ -8,7 +8,7 @@ img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
     font-family: var(--sans);
@@ -17,7 +17,6 @@ body {
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 
