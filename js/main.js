@@ -129,15 +129,22 @@
     window.addEventListener('scroll', updateParallax, { passive: true });
 
 
-    /* ── Tilt effect on case cards ── */
-    const caseCards = document.querySelectorAll('.case-card');
+    /* ── Case cards: click + tilt ── */
+    const caseCards = document.querySelectorAll('.case-card[data-href]');
 
     caseCards.forEach(card => {
+        // Click to open demo
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('.case-link-code')) return;
+            window.open(card.dataset.href, '_blank');
+        });
+
+        // Tilt on hover
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = (e.clientX - rect.left) / rect.width - 0.5;
             const y = (e.clientY - rect.top) / rect.height - 0.5;
-            card.style.transform = `translateY(-6px) perspective(800px) rotateX(${y * -4}deg) rotateY(${x * 4}deg)`;
+            card.style.transform = `translateY(-4px) perspective(800px) rotateX(${y * -3}deg) rotateY(${x * 3}deg)`;
         });
 
         card.addEventListener('mouseleave', () => {
