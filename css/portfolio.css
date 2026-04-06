@@ -52,10 +52,11 @@
         background: rgba(13,17,23,1); backdrop-filter: blur(20px);
         flex-direction: column; padding: 2rem 1.25rem;
         gap: 1.5rem; border-bottom: 1px solid var(--accent-bd);
-        transform: translateY(-110%); transition: transform .3s var(--ease);
+        transform: translateY(-110%); visibility: hidden;
+        transition: transform .3s var(--ease), visibility .3s;
         z-index: 99;
     }
-    .nav.open { transform: translateY(0); }
+    .nav.open { transform: translateY(0); visibility: visible; }
     .nav a { font-size: 1rem; }
     .nav-cta { text-align: center; width: 100%; padding: .6rem; }
 }
