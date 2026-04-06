@@ -571,8 +571,8 @@
     .hero { padding: calc(3rem + 60px) 0 2.5rem; }
     .hero h1 { font-size: 1.35rem; line-height: 1.25; }
     .hero p { font-size: .82rem; line-height: 1.7; }
-    .hero-buttons { flex-direction: column; align-items: flex-start; }
-    .hero-buttons .btn { text-align: center; }
+    .hero-buttons { flex-direction: column; }
+    .hero-buttons .btn { width: 100%; text-align: left; }
 
     .section { padding: 2.5rem 0; }
     .section-title { font-size: 1.15rem; }
@@ -602,8 +602,8 @@
     .cta h2 { font-size: 1.15rem; }
     .cta p { font-size: .82rem; }
     .cta { padding: 2rem 0 5rem; }
-    .cta-links { flex-direction: column; align-items: flex-start; }
-    .cta-link { padding: .7rem 1rem; }
+    .cta-links { flex-direction: column; }
+    .cta-link { width: 100%; justify-content: flex-start; padding: .7rem 1rem; }
 
     .footer { padding: 1.5rem 1.25rem; }
     .footer-links { gap: .8rem; }
