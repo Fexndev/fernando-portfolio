@@ -66,11 +66,6 @@
     position: relative; overflow: hidden;
     padding: 9rem 0 9rem;
     margin-top: 60px;
-    display: flex; flex-direction: column;
-    justify-content: center;
-}
-.hero .marquee {
-    position: absolute; bottom: 0; left: 0; right: 0;
 }
 .hero::before {
     content: ''; position: absolute; inset: 0; pointer-events: none;
@@ -538,12 +533,7 @@
 
 /* ── Tablet (≤768px) ── */
 @media (max-width: 768px) {
-    .hero {
-        margin-top: 60px;
-        min-height: calc(100vh - 60px);
-        min-height: calc(100svh - 60px);
-        padding: 3rem 0 4rem;
-    }
+    .hero { padding: 4rem 0 3rem; }
     .hero h1 { font-size: 1.6rem; letter-spacing: -.5px; }
     .hero p { font-size: .88rem; }
     .hero-buttons { gap: .75rem; }
@@ -564,12 +554,7 @@
 
 /* ── Mobile (≤560px) ── */
 @media (max-width: 560px) {
-    .hero {
-        margin-top: 60px;
-        min-height: calc(100vh - 60px);
-        min-height: calc(100svh - 60px);
-        padding: 2.5rem 0 4rem;
-    }
+    .hero { padding: 3rem 0 2.5rem; }
     .hero h1 { font-size: 1.35rem; line-height: 1.25; }
     .hero p { font-size: .82rem; line-height: 1.7; }
     .hero-buttons { flex-direction: column; }
@@ -614,7 +599,7 @@
 
 /* ── Small Mobile (≤380px) ── */
 @media (max-width: 380px) {
-    .hero { padding: 2rem 0 4rem; }
+    .hero { padding: 2rem 0 2rem; }
     .hero h1 { font-size: 1.15rem; }
 
     .nav.open { padding: 1.5rem 1rem; }
