@@ -40,7 +40,7 @@ body {
 
 /* ── Text justify ── */
 p, .sobre-text p, .servico-card p, .project-card p, .section-desc,
-.diferencial-card p, .cta p, .hero p {
+.diferencial-card p, .cta p, .hero p, .case-card p {
     text-align: justify;
 }
 

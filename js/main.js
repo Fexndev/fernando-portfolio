@@ -104,5 +104,46 @@
     }, { passive: true });
 
 
+    /* ── Parallax Effect ── */
+    const parallaxBgs = document.querySelectorAll('.parallax-bg');
+    const heroSection = document.querySelector('.hero');
+
+    function updateParallax() {
+        const scrollY = window.scrollY;
+
+        // Hero parallax
+        if (heroSection) {
+            heroSection.style.setProperty('--parallax-y', (scrollY * 0.4) + 'px');
+        }
+
+        // Section parallax backgrounds
+        parallaxBgs.forEach(bg => {
+            const speed = parseFloat(bg.dataset.speed) || 0.3;
+            const section = bg.parentElement;
+            const rect = section.getBoundingClientRect();
+            const offset = rect.top * speed;
+            bg.style.transform = `translateY(${offset}px)`;
+        });
+    }
+
+    window.addEventListener('scroll', updateParallax, { passive: true });
+
+
+    /* ── Tilt effect on case cards ── */
+    const caseCards = document.querySelectorAll('.case-card');
+
+    caseCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            card.style.transform = `translateY(-6px) perspective(800px) rotateX(${y * -4}deg) rotateY(${x * 4}deg)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+
 
 })();
