@@ -69,6 +69,7 @@
     padding: calc(9rem + 60px) 0 9rem;
     display: flex; flex-direction: column; justify-content: center;
     min-height: 100vh; min-height: 100svh;
+    isolation: isolate;
 }
 .hero::before {
     content: ''; position: absolute; inset: 0; pointer-events: none;
@@ -310,6 +311,7 @@
     padding: 5rem 0 6rem;
     min-height: 100vh; min-height: 100svh;
     display: flex; flex-direction: column; justify-content: center;
+    isolation: isolate;
 }
 .parallax-bg {
     position: absolute; inset: 0; pointer-events: none;
