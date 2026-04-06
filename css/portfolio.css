@@ -66,7 +66,7 @@
 /* ── HERO ── */
 .hero {
     position: relative; overflow: hidden;
-    padding: calc(9rem + 60px) 0 0;
+    padding: 60px 0 0;
     display: flex; flex-direction: column; justify-content: center;
     min-height: 100vh; min-height: 100svh;
     isolation: isolate;
@@ -548,7 +548,7 @@
 
 /* ── Tablet (≤768px) ── */
 @media (max-width: 768px) {
-    .hero { padding: calc(4rem + 60px) 0 0; }
+    .hero { padding: 60px 0 0; }
     .hero-inner { padding: 0 1.25rem; }
     .hero h1 { font-size: 1.6rem; letter-spacing: -.5px; }
     .hero p { font-size: .88rem; }
@@ -570,7 +570,7 @@
 
 /* ── Mobile (≤560px) ── */
 @media (max-width: 560px) {
-    .hero { padding: calc(3rem + 60px) 0 0; }
+    .hero { padding: 60px 0 0; }
     .hero h1 { font-size: 1.35rem; line-height: 1.25; }
     .hero p { font-size: .82rem; line-height: 1.7; }
     .hero-buttons { flex-direction: column; }
@@ -615,7 +615,7 @@
 
 /* ── Small Mobile (≤380px) ── */
 @media (max-width: 380px) {
-    .hero { padding: calc(2rem + 60px) 0 0; }
+    .hero { padding: 60px 0 0; }
     .hero h1 { font-size: 1.15rem; }
 
     .nav.open { padding: 1.5rem 1rem; }
