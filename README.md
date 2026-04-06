@@ -2,7 +2,7 @@
 
 Portfólio pessoal apresentando projetos e serviços nas áreas de análise de dados, design estratégico, tráfego pago, social media e automação.
 
-**[Acessar o Portfólio](https://fexndev.github.io/fernando-portfolio/)**
+**[Acessar o Portfólio](https://ffernndo.github.io/fernando-portfolio/)**
 
 ## Sobre
 
