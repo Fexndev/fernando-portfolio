@@ -243,6 +243,7 @@
 .tab[data-filter="trafego"].active  { color: var(--c-trafego);  background: var(--c-trafego-bg);  border-color: var(--c-trafego-bd); }
 .tab[data-filter="social"].active   { color: var(--c-social);   background: var(--c-social-bg);   border-color: var(--c-social-bd); }
 .tab[data-filter="automacao"].active{ color: var(--c-automacao); background: var(--c-automacao-bg); border-color: var(--c-automacao-bd); }
+.tab[data-filter="opensource"].active{ color: var(--c-opensource); background: var(--c-opensource-bg); border-color: var(--c-opensource-bd); }
 
 .projects-grid {
     display: grid; grid-template-columns: repeat(2, 1fr);
@@ -291,6 +292,29 @@
 .project-card[data-category="trafego"]:hover  { border-color: var(--c-trafego-bd); }
 .project-card[data-category="social"]:hover   { border-color: var(--c-social-bd); }
 .project-card[data-category="automacao"]:hover { border-color: var(--c-automacao-bd); }
+.project-card[data-category="opensource"]:hover { border-color: var(--c-opensource-bd); }
+
+/* ── Project Action Links (Demo + GitHub) ── */
+.project-actions {
+    display: flex; gap: .6rem; margin-top: 1rem;
+    padding-top: .8rem; border-top: 1px solid rgba(255,255,255,.05);
+}
+.project-action {
+    display: inline-flex; align-items: center; gap: .35rem;
+    font-size: .68rem; font-weight: 600; color: var(--g2);
+    padding: .35rem .7rem; border-radius: 6px;
+    border: 1px solid rgba(255,255,255,.06);
+    transition: all .2s var(--ease);
+    text-decoration: none;
+}
+.project-action:hover {
+    color: var(--c-opensource); background: var(--c-opensource-bg);
+    border-color: var(--c-opensource-bd);
+}
+.project-action svg {
+    width: 13px; height: 13px; stroke: currentColor;
+    fill: none; stroke-width: 2;
+}
 
 
 /* ── CTA / CONTATO ── */
@@ -370,6 +394,8 @@
 .reveal-children.visible > *:nth-child(3) { transition-delay: .16s; }
 .reveal-children.visible > *:nth-child(4) { transition-delay: .24s; }
 .reveal-children.visible > *:nth-child(5) { transition-delay: .32s; }
+.reveal-children.visible > *:nth-child(6) { transition-delay: .40s; }
+.reveal-children.visible > *:nth-child(7) { transition-delay: .48s; }
 .reveal-children.visible > * {
     opacity: 1; transform: translateY(0);
 }

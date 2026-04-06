@@ -43,6 +43,11 @@
     --c-automacao-bg:   rgba(74,222,128,.08);
     --c-automacao-bd:   rgba(74,222,128,.18);
 
+    --c-opensource:      #fbbf24;
+    --c-opensource-rgb:  251,191,36;
+    --c-opensource-bg:   rgba(251,191,36,.08);
+    --c-opensource-bd:   rgba(251,191,36,.18);
+
     /* ── Text ── */
     --white: #e6edf3;
     --g1: #b0bec5;

@@ -72,6 +72,7 @@
 .badge-trafego  { background: var(--c-trafego-bg);  color: var(--c-trafego); }
 .badge-social   { background: var(--c-social-bg);   color: var(--c-social); }
 .badge-automacao{ background: var(--c-automacao-bg); color: var(--c-automacao); }
+.badge-opensource{ background: var(--c-opensource-bg); color: var(--c-opensource); }
 
 /* ── Logo ── */
 .logo {
