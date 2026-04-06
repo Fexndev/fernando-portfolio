@@ -311,39 +311,77 @@
 
 /* ── Carousel ── */
 .cases-carousel {
+    position: relative;
     overflow: hidden;
     margin: 2rem calc(-1 * var(--gap)) 0;
     padding: 1rem 0 1.5rem;
-    cursor: grab;
 }
-.cases-carousel:active { cursor: grabbing; }
+
+/* Fade edges */
+.cases-carousel::before,
+.cases-carousel::after {
+    content: '';
+    position: absolute; top: 0; bottom: 0;
+    width: 80px; z-index: 2;
+    pointer-events: none;
+}
+.cases-carousel::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--bg-1), transparent);
+}
+.cases-carousel::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--bg-1), transparent);
+}
 
 .cases-track {
     display: flex;
-    gap: 1.2rem;
-    width: fit-content;
-    animation: scroll-cases 50s linear infinite;
-    padding: 0 .6rem;
-}
-.cases-track:hover,
-.cases-track.dragging {
-    animation-play-state: paused;
+    gap: 1.5rem;
+    padding: 0 var(--gap);
+    transition: transform .5s cubic-bezier(.25,.46,.45,.94);
 }
 
-@keyframes scroll-cases {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+/* ── Carousel Arrows ── */
+.carousel-arrow {
+    position: absolute; top: 50%; z-index: 3;
+    transform: translateY(-50%);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--c-opensource-bd);
+    background: rgba(13,17,23,.85);
+    backdrop-filter: blur(12px);
+    color: var(--c-opensource);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .25s var(--ease);
 }
+.carousel-arrow svg {
+    width: 20px; height: 20px;
+    stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.carousel-arrow:hover {
+    background: var(--c-opensource);
+    color: var(--bg-0);
+    border-color: var(--c-opensource);
+    box-shadow: 0 0 20px rgba(251,191,36,.25);
+}
+.carousel-arrow:disabled {
+    opacity: .3; cursor: default;
+    pointer-events: none;
+}
+.carousel-prev { left: 12px; }
+.carousel-next { right: 12px; }
 
 /* ── Case Card (rectangular) ── */
 .case-card {
     display: flex; flex-direction: column;
-    min-width: 340px; max-width: 340px;
+    min-width: 420px; max-width: 420px;
     background: var(--bg-2);
     border: 1px solid rgba(255,255,255,.06);
     border-left: 3px solid var(--c-opensource-bd);
-    border-radius: 12px;
-    padding: 1.5rem 1.6rem;
+    border-radius: 14px;
+    padding: 1.8rem 2rem;
     text-decoration: none; color: inherit;
     cursor: pointer;
     transition: all .35s var(--ease);
@@ -397,15 +435,15 @@
 }
 
 .case-card h3 {
-    font-size: .92rem; font-weight: 700;
+    font-size: 1.05rem; font-weight: 700;
     line-height: 1.3;
     transition: color .2s var(--ease);
 }
 .case-card:hover h3 { color: var(--c-opensource); }
 
 .case-card p {
-    font-size: .78rem; color: var(--g2); line-height: 1.7;
-    margin-bottom: .8rem; flex: 1;
+    font-size: .85rem; color: var(--g2); line-height: 1.7;
+    margin-bottom: 1rem; flex: 1;
 }
 
 .case-tags {
@@ -454,10 +492,21 @@
 }
 
 /* ── Responsive ── */
+@media (max-width: 768px) {
+    .case-card { min-width: 340px; max-width: 340px; padding: 1.5rem; }
+    .carousel-arrow { width: 38px; height: 38px; }
+    .carousel-arrow svg { width: 16px; height: 16px; }
+    .carousel-prev { left: 8px; }
+    .carousel-next { right: 8px; }
+    .cases-carousel::before,
+    .cases-carousel::after { width: 50px; }
+}
 @media (max-width: 560px) {
-    .case-card { min-width: 280px; max-width: 280px; padding: 1.2rem; }
+    .case-card { min-width: 300px; max-width: 300px; padding: 1.3rem; }
     .case-actions { flex-direction: column; }
-    .cases-track { gap: .8rem; }
+    .cases-track { gap: 1rem; }
+    .cases-carousel::before,
+    .cases-carousel::after { width: 30px; }
 }
 
 

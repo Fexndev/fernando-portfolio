@@ -129,43 +129,60 @@
     window.addEventListener('scroll', updateParallax, { passive: true });
 
 
-    /* ── Cases Carousel: infinite loop ── */
+    /* ── Cases Carousel: arrow navigation ── */
     const casesTrack = document.querySelector('.cases-track');
-    if (casesTrack) {
-        // Clone cards for seamless infinite scroll
-        const originalCards = casesTrack.querySelectorAll('.case-card');
-        originalCards.forEach(card => {
-            casesTrack.appendChild(card.cloneNode(true));
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+
+    if (casesTrack && prevBtn && nextBtn) {
+        let offset = 0;
+
+        function getCardStep() {
+            const card = casesTrack.querySelector('.case-card');
+            if (!card) return 400;
+            return card.offsetWidth + parseFloat(getComputedStyle(casesTrack).gap);
+        }
+
+        function getMaxOffset() {
+            const carousel = casesTrack.parentElement;
+            return Math.max(0, casesTrack.scrollWidth - carousel.offsetWidth);
+        }
+
+        function updateArrows() {
+            prevBtn.disabled = offset <= 0;
+            nextBtn.disabled = offset >= getMaxOffset();
+        }
+
+        function slide(direction) {
+            const step = getCardStep();
+            const max = getMaxOffset();
+            offset = Math.min(max, Math.max(0, offset + step * direction));
+            casesTrack.style.transform = `translateX(${-offset}px)`;
+            updateArrows();
+        }
+
+        prevBtn.addEventListener('click', () => slide(-1));
+        nextBtn.addEventListener('click', () => slide(1));
+
+        // Touch swipe
+        let touchStartX = 0;
+        casesTrack.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+
+        casesTrack.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 50) slide(dx < 0 ? 1 : -1);
         });
 
-        // Drag-to-scroll support
-        const carousel = document.querySelector('.cases-carousel');
-        let isDragging = false, startX, scrollStart;
-
-        carousel.addEventListener('mousedown', (e) => {
-            isDragging = false;
-            startX = e.clientX;
-            const style = getComputedStyle(casesTrack);
-            const matrix = new DOMMatrix(style.transform);
-            scrollStart = matrix.m41;
-            casesTrack.classList.add('dragging');
+        // Recalc on resize
+        window.addEventListener('resize', () => {
+            offset = Math.min(offset, getMaxOffset());
+            casesTrack.style.transform = `translateX(${-offset}px)`;
+            updateArrows();
         });
 
-        carousel.addEventListener('mousemove', (e) => {
-            if (startX === undefined) return;
-            const dx = e.clientX - startX;
-            if (Math.abs(dx) > 5) isDragging = true;
-        });
-
-        carousel.addEventListener('mouseup', () => {
-            startX = undefined;
-            casesTrack.classList.remove('dragging');
-        });
-
-        carousel.addEventListener('mouseleave', () => {
-            startX = undefined;
-            casesTrack.classList.remove('dragging');
-        });
+        updateArrows();
     }
 
     /* ── Case cards: click + tilt ── */
