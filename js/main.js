@@ -129,60 +129,11 @@
     window.addEventListener('scroll', updateParallax, { passive: true });
 
 
-    /* ── Cases Carousel: arrow navigation ── */
+    /* ── Cases Carousel: infinite scroll, pause on hover ── */
     const casesTrack = document.querySelector('.cases-track');
-    const prevBtn = document.querySelector('.carousel-prev');
-    const nextBtn = document.querySelector('.carousel-next');
-
-    if (casesTrack && prevBtn && nextBtn) {
-        let offset = 0;
-
-        function getCardStep() {
-            const card = casesTrack.querySelector('.case-card');
-            if (!card) return 400;
-            return card.offsetWidth + parseFloat(getComputedStyle(casesTrack).gap);
-        }
-
-        function getMaxOffset() {
-            const carousel = casesTrack.parentElement;
-            return Math.max(0, casesTrack.scrollWidth - carousel.offsetWidth);
-        }
-
-        function updateArrows() {
-            prevBtn.disabled = offset <= 0;
-            nextBtn.disabled = offset >= getMaxOffset();
-        }
-
-        function slide(direction) {
-            const step = getCardStep();
-            const max = getMaxOffset();
-            offset = Math.min(max, Math.max(0, offset + step * direction));
-            casesTrack.style.transform = `translateX(${-offset}px)`;
-            updateArrows();
-        }
-
-        prevBtn.addEventListener('click', () => slide(-1));
-        nextBtn.addEventListener('click', () => slide(1));
-
-        // Touch swipe
-        let touchStartX = 0;
-        casesTrack.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-        }, { passive: true });
-
-        casesTrack.addEventListener('touchend', (e) => {
-            const dx = e.changedTouches[0].clientX - touchStartX;
-            if (Math.abs(dx) > 50) slide(dx < 0 ? 1 : -1);
-        });
-
-        // Recalc on resize
-        window.addEventListener('resize', () => {
-            offset = Math.min(offset, getMaxOffset());
-            casesTrack.style.transform = `translateX(${-offset}px)`;
-            updateArrows();
-        });
-
-        updateArrows();
+    if (casesTrack) {
+        const cards = casesTrack.querySelectorAll('.case-card');
+        cards.forEach(card => casesTrack.appendChild(card.cloneNode(true)));
     }
 
     /* ── Case cards: click + tilt ── */
