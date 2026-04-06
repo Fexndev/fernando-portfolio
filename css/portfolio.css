@@ -67,16 +67,14 @@
 .hero {
     position: relative; overflow: hidden;
     padding: calc(9rem + 60px) 0 9rem;
+    display: flex; flex-direction: column; justify-content: center;
+    min-height: 100vh; min-height: 100svh;
 }
 .hero::before {
     content: ''; position: absolute; inset: 0; pointer-events: none;
     background: radial-gradient(ellipse at 50% 0%, rgba(94,234,212,.1) 0%, transparent 60%);
     transform: translateY(var(--parallax-y, 0));
     will-change: transform;
-}
-.hero {
-    display: flex; flex-direction: column; justify-content: center;
-    min-height: 100vh; min-height: 100svh;
 }
 .hero-inner {
     position: relative; z-index: 1;
