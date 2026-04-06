@@ -129,28 +129,66 @@
     window.addEventListener('scroll', updateParallax, { passive: true });
 
 
+    /* ── Cases Carousel: infinite loop ── */
+    const casesTrack = document.querySelector('.cases-track');
+    if (casesTrack) {
+        // Clone cards for seamless infinite scroll
+        const originalCards = casesTrack.querySelectorAll('.case-card');
+        originalCards.forEach(card => {
+            casesTrack.appendChild(card.cloneNode(true));
+        });
+
+        // Drag-to-scroll support
+        const carousel = document.querySelector('.cases-carousel');
+        let isDragging = false, startX, scrollStart;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDragging = false;
+            startX = e.clientX;
+            const style = getComputedStyle(casesTrack);
+            const matrix = new DOMMatrix(style.transform);
+            scrollStart = matrix.m41;
+            casesTrack.classList.add('dragging');
+        });
+
+        carousel.addEventListener('mousemove', (e) => {
+            if (startX === undefined) return;
+            const dx = e.clientX - startX;
+            if (Math.abs(dx) > 5) isDragging = true;
+        });
+
+        carousel.addEventListener('mouseup', () => {
+            startX = undefined;
+            casesTrack.classList.remove('dragging');
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            startX = undefined;
+            casesTrack.classList.remove('dragging');
+        });
+    }
+
     /* ── Case cards: click + tilt ── */
-    const caseCards = document.querySelectorAll('.case-card[data-href]');
+    function initCaseCards() {
+        document.querySelectorAll('.case-card[data-href]').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (e.target.closest('.case-link-code')) return;
+                window.open(card.dataset.href, '_blank');
+            });
 
-    caseCards.forEach(card => {
-        // Click to open demo
-        card.addEventListener('click', (e) => {
-            if (e.target.closest('.case-link-code')) return;
-            window.open(card.dataset.href, '_blank');
-        });
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = `translateY(-4px) perspective(800px) rotateX(${y * -3}deg) rotateY(${x * 3}deg)`;
+            });
 
-        // Tilt on hover
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width - 0.5;
-            const y = (e.clientY - rect.top) / rect.height - 0.5;
-            card.style.transform = `translateY(-4px) perspective(800px) rotateX(${y * -3}deg) rotateY(${x * 3}deg)`;
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
         });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
-        });
-    });
+    }
+    initCaseCards();
 
 
 })();
