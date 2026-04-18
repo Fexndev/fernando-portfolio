@@ -5,17 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Fernando — Dados, Design & Estratégia</title>
     <meta name="description" content="Portfólio de Fernando: especialista em dados, design estratégico e automação. Transformando dados em decisões e estratégia em resultados.">
+    <meta name="theme-color" content="#0d1117">
+    <meta name="author" content="Fernando">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fernando — Dados, Design & Estratégia">
+    <meta property="og:description" content="Especialista em transformar dados complexos em estratégias visuais e acionáveis. 8 anos de experiência em análise, design e automação.">
+    <meta property="og:url" content="https://fexndev.github.io/fernando-portfolio/">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fernando — Dados, Design & Estratégia">
+    <meta name="twitter:description" content="Especialista em transformar dados complexos em estratégias visuais e acionáveis.">
+
+    <!-- Favicon (SVG inline) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d1117'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='JetBrains Mono,monospace' font-weight='700' font-size='18' fill='%235eead4'%3Ef%3C/text%3E%3Ccircle cx='24' cy='24' r='2' fill='%235eead4'/%3E%3C/svg%3E">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/tokens.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/effects.css">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Fernando",
+      "jobTitle": "Especialista em Dados, Design e Estratégia",
+      "description": "8 anos de experiência em análise de dados, design estratégico, tráfego pago, social media e automação.",
+      "url": "https://fexndev.github.io/fernando-portfolio/",
+      "sameAs": [
+        "https://www.linkedin.com/in/fexnndo/",
+        "https://github.com/Fexndev"
+      ],
+      "knowsAbout": ["Power BI", "SQL", "Python", "UI/UX Design", "Branding", "Meta Ads", "Google Ads", "Make", "Zapier", "n8n"]
+    }
+    </script>
 </head>
 <body>
+
+<!-- ══════════════════════════════════════
+     SCROLL PROGRESS
+     ══════════════════════════════════════ -->
+<div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress-bar"></div>
+</div>
+
 
 <!-- ══════════════════════════════════════
      HEADER
@@ -42,13 +86,26 @@
 <!-- ══════════════════════════════════════
      HERO
      ══════════════════════════════════════ -->
-<section class="hero">
+<section class="hero" id="inicio">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="hero-orbs" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+    </div>
+
+    <div class="hero-3d-wrap" aria-hidden="true">
+        <canvas class="hero-3d-canvas" id="hero3d"></canvas>
+        <span class="hero-3d-hint">// arraste para girar</span>
+    </div>
+
     <div class="hero-inner">
         <h1>Dados que contam histórias.<br>Estratégia que gera resultados.</h1>
         <p>Com 8 anos de experiência em análise, design estratégico e comunicação visual, transformo dados brutos em insights acionáveis e estratégias que funcionam no mundo real.</p>
         <div class="hero-buttons">
-            <a href="#portfolio" class="btn btn-accent">Ver meu trabalho</a>
-            <a href="#contato" class="btn btn-outline">Vamos conversar</a>
+            <a href="#portfolio" class="btn btn-accent magnet">Ver meu trabalho</a>
+            <a href="#contato" class="btn btn-outline magnet">Vamos conversar</a>
         </div>
     </div>
 
@@ -60,12 +117,24 @@
     </div>
 </section>
 
+<div class="marquee marquee-reverse" aria-hidden="true">
+    <div class="marquee-track">
+        <span>◇ sql ◇ python ◇ power bi ◇ figma ◇ meta ads ◇ make ◇ n8n ◇ branding ◇ ui/ux ◇ looker ◇ sql ◇ python ◇ power bi ◇ figma ◇ meta ads ◇ make ◇ n8n ◇ branding ◇ ui/ux ◇ looker&nbsp;</span>
+        <span>◇ sql ◇ python ◇ power bi ◇ figma ◇ meta ads ◇ make ◇ n8n ◇ branding ◇ ui/ux ◇ looker ◇ sql ◇ python ◇ power bi ◇ figma ◇ meta ads ◇ make ◇ n8n ◇ branding ◇ ui/ux ◇ looker&nbsp;</span>
+    </div>
+</div>
+
 
 
 <section class="section" id="sobre">
     <div class="wrap reveal">
-        <span class="section-label">// sobre mim</span>
-        <h2 class="section-title">Quem é o Fernando?</h2>
+        <div class="section-head">
+            <span class="section-num" aria-hidden="true" data-parallax="0.05">01</span>
+            <div>
+                <span class="section-label">// sobre mim</span>
+                <h2 class="section-title">Quem é o Fernando?</h2>
+            </div>
+        </div>
 
         <div class="sobre-grid">
             <div class="sobre-text">
@@ -100,38 +169,73 @@
 <section class="section" id="servicos">
     <div class="wrap">
         <div class="reveal">
-            <span class="section-label">// serviços</span>
-            <h2 class="section-title">Frentes de Atuação</h2>
+            <div class="section-head">
+                <span class="section-num" aria-hidden="true" data-parallax="0.05">02</span>
+                <div>
+                    <span class="section-label">// serviços</span>
+                    <h2 class="section-title">Frentes de Atuação</h2>
+                </div>
+            </div>
             <p class="section-desc">Cinco áreas de expertise que se complementam para entregar soluções completas.</p>
         </div>
 
         <div class="servicos-grid reveal-children">
             <div class="servico-card" data-theme="tech">
-                <span class="servico-icon">💻</span>
-                <h3>Dados & Tech</h3>
+                <span class="servico-icon" aria-hidden="true">
+                    <span class="icon-cube">
+                        <span class="face f-front"></span><span class="face f-back"></span>
+                        <span class="face f-right"></span><span class="face f-left"></span>
+                        <span class="face f-top"></span><span class="face f-bottom"></span>
+                    </span>
+                </span>
+                <h3>Dados &amp; Tech</h3>
                 <p>Dashboards interativos, automação de planilhas, modelagem SQL e relatórios gerenciais que transformam dados em decisões.</p>
             </div>
 
             <div class="servico-card" data-theme="design">
-                <span class="servico-icon">🎨</span>
-                <h3>Design & Marca</h3>
+                <span class="servico-icon" aria-hidden="true">
+                    <span class="icon-cube">
+                        <span class="face f-front"></span><span class="face f-back"></span>
+                        <span class="face f-right"></span><span class="face f-left"></span>
+                        <span class="face f-top"></span><span class="face f-bottom"></span>
+                    </span>
+                </span>
+                <h3>Design &amp; Marca</h3>
                 <p>Identidade visual, landing pages, sites institucionais e UI/UX — cada pixel pensado para comunicar e converter.</p>
             </div>
 
             <div class="servico-card" data-theme="trafego">
-                <span class="servico-icon">📈</span>
+                <span class="servico-icon" aria-hidden="true">
+                    <span class="icon-cube">
+                        <span class="face f-front"></span><span class="face f-back"></span>
+                        <span class="face f-right"></span><span class="face f-left"></span>
+                        <span class="face f-top"></span><span class="face f-bottom"></span>
+                    </span>
+                </span>
                 <h3>Tráfego Pago</h3>
                 <p>Campanhas estratégicas com setup profissional, otimização contínua e relatórios claros para escalar resultados.</p>
             </div>
 
             <div class="servico-card" data-theme="social">
-                <span class="servico-icon">📱</span>
+                <span class="servico-icon" aria-hidden="true">
+                    <span class="icon-cube">
+                        <span class="face f-front"></span><span class="face f-back"></span>
+                        <span class="face f-right"></span><span class="face f-left"></span>
+                        <span class="face f-top"></span><span class="face f-bottom"></span>
+                    </span>
+                </span>
                 <h3>Social Media</h3>
                 <p>Planejamento de conteúdo, criação de posts, gestão de comunidade e métricas que comprovam o retorno.</p>
             </div>
 
             <div class="servico-card" data-theme="automacao">
-                <span class="servico-icon">⚡</span>
+                <span class="servico-icon" aria-hidden="true">
+                    <span class="icon-cube">
+                        <span class="face f-front"></span><span class="face f-back"></span>
+                        <span class="face f-right"></span><span class="face f-left"></span>
+                        <span class="face f-top"></span><span class="face f-bottom"></span>
+                    </span>
+                </span>
                 <h3>Automação</h3>
                 <p>Mapeamento de processos, automação de fluxos via Make/Zapier/n8n e integração de sistemas via API.</p>
             </div>
@@ -147,8 +251,13 @@
 <section class="section" id="portfolio">
     <div class="wrap">
         <div class="reveal">
-            <span class="section-label">// portfólio</span>
-            <h2 class="section-title">Como posso te ajudar?</h2>
+            <div class="section-head">
+                <span class="section-num" aria-hidden="true" data-parallax="0.05">03</span>
+                <div>
+                    <span class="section-label">// portfólio</span>
+                    <h2 class="section-title">Como posso te ajudar?</h2>
+                </div>
+            </div>
             <p class="section-desc">Explore as frentes em que atuo e veja exemplos práticos de como transformo desafios em resultados.</p>
         </div>
 
@@ -440,8 +549,13 @@
     <div class="parallax-bg" data-speed="0.3"></div>
     <div class="wrap">
         <div class="reveal">
-            <span class="section-label">// cases reais</span>
-            <h2 class="section-title">Projetos Open Source</h2>
+            <div class="section-head">
+                <span class="section-num" aria-hidden="true" data-parallax="0.05">04</span>
+                <div>
+                    <span class="section-label">// cases reais</span>
+                    <h2 class="section-title">Projetos Open Source</h2>
+                </div>
+            </div>
             <p class="section-desc">Aplicações publicadas no GitHub com código aberto, dados reais e deploy automatizado. Cada projeto roda ao vivo — clique para explorar.</p>
         </div>
 
@@ -618,24 +732,29 @@
      ══════════════════════════════════════ -->
 <section class="cta" id="contato">
     <div class="cta-inner wrap reveal">
-        <span class="section-label">// contato</span>
-        <h2>Vamos trabalhar juntos?</h2>
+        <div class="section-head">
+            <span class="section-num" aria-hidden="true" data-parallax="0.05">05</span>
+            <div>
+                <span class="section-label">// contato</span>
+                <h2>Vamos trabalhar juntos?</h2>
+            </div>
+        </div>
         <p>Se você busca alguém que entende dados, design e estratégia — vamos conversar sobre o seu projeto.</p>
 
         <div class="cta-links">
-            <a href="mailto:contato@fernando.dev" class="cta-link">
+            <a href="mailto:contato@fernando.dev" class="cta-link magnet">
                 <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
                 E-mail
             </a>
-            <a href="https://wa.me/5521990228622" target="_blank" class="cta-link">
+            <a href="https://wa.me/5521990228622" target="_blank" class="cta-link magnet">
                 <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
                 WhatsApp
             </a>
-            <a href="https://www.linkedin.com/in/fexnndo/" target="_blank" class="cta-link">
+            <a href="https://www.linkedin.com/in/fexnndo/" target="_blank" class="cta-link magnet">
                 <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 LinkedIn
             </a>
-            <a href="https://github.com/Fexndev" target="_blank" class="cta-link">
+            <a href="https://github.com/Fexndev" target="_blank" class="cta-link magnet">
                 <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
                 GitHub
             </a>
@@ -659,6 +778,9 @@
 </footer>
 
 
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/parallax.js" defer></script>
+<script src="js/cards-fx.js" defer></script>
+<script type="module" src="js/hero-3d.js"></script>
 </body>
 </html>
