@@ -51,10 +51,25 @@
 
     /* ── UI ── */
     --r: 8px;
+    --r-lg: 14px;
     --ease: cubic-bezier(.25,.46,.45,.94);
     --ease-out: cubic-bezier(0,.55,.45,1);
+    --ease-spring: cubic-bezier(.34,1.56,.64,1);
     --max: 1100px;
     --gap: 2.5rem;
+
+    /* ── Shadows ── */
+    --shadow-sm: 0 2px 8px rgba(0,0,0,.25);
+    --shadow-md: 0 8px 24px rgba(0,0,0,.35);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,.45);
+    --shadow-glow: 0 0 32px rgba(94,234,212,.18);
+
+    /* ── Gradients ── */
+    --grad-accent: linear-gradient(135deg, var(--accent), var(--accent-lt));
+    --grad-rainbow: linear-gradient(90deg, var(--c-tech), var(--c-design), var(--c-trafego), var(--c-social), var(--c-automacao));
+    --grad-mesh: radial-gradient(at 20% 20%, rgba(94,234,212,.15), transparent 50%),
+                 radial-gradient(at 80% 10%, rgba(167,139,250,.12), transparent 50%),
+                 radial-gradient(at 70% 80%, rgba(96,165,250,.1), transparent 50%);
 
     /* ── Fonts ── */
     --mono: 'JetBrains Mono', 'Fira Code', monospace;
