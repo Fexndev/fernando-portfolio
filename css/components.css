@@ -14,13 +14,13 @@
 .btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
 
 .btn-accent {
-    background: linear-gradient(135deg, var(--accent), var(--accent-lt));
-    color: var(--bg-0);
-    box-shadow: 0 4px 16px rgba(94,234,212,.2);
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 4px 16px rgba(255,255,255,.1);
 }
 .btn-accent:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 22px rgba(94,234,212,.3);
+    box-shadow: 0 6px 22px rgba(255,255,255,.15);
 }
 
 .btn-outline {

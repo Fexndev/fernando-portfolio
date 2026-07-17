@@ -14,14 +14,9 @@
 .scroll-progress-bar {
     height: 100%;
     width: 0;
-    background: linear-gradient(90deg,
-        var(--c-tech) 0%,
-        var(--c-design) 25%,
-        var(--c-trafego) 50%,
-        var(--c-social) 75%,
-        var(--c-automacao) 100%);
+    background: #ffffff;
     transition: width .08s linear;
-    box-shadow: 0 0 10px rgba(94,234,212,.6);
+    box-shadow: 0 0 8px rgba(255,255,255,.4);
 }
 
 
@@ -35,8 +30,8 @@
 .hero-grid-bg {
     position: absolute; inset: 0;
     background-image:
-        linear-gradient(rgba(94,234,212,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(94,234,212,.06) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
     background-size: 56px 56px;
     mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 75%);
     -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 75%);
@@ -49,22 +44,8 @@
 }
 
 .hero-orbs {
-    position: absolute; inset: 0;
-    pointer-events: none;
-    overflow: hidden;
+    display: none;
 }
-.orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: .55;
-    will-change: transform;
-    transition: transform .35s cubic-bezier(.2,.9,.3,1);
-}
-.orb-1 { width: 360px; height: 360px; background: radial-gradient(circle, var(--c-tech), transparent 65%);    top: 10%;  left: 60%; }
-.orb-2 { width: 280px; height: 280px; background: radial-gradient(circle, var(--c-design), transparent 65%);  top: 55%;  left: 10%; }
-.orb-3 { width: 220px; height: 220px; background: radial-gradient(circle, var(--c-social), transparent 65%);  top: 5%;   left: 15%; opacity: .35; }
-.orb-4 { width: 300px; height: 300px; background: radial-gradient(circle, var(--c-trafego), transparent 65%); top: 70%;  left: 70%; opacity: .35; }
 
 .hero-3d-wrap {
     position: absolute;
@@ -153,7 +134,7 @@
     font-size: clamp(3rem, 7vw, 5.5rem);
     font-weight: 700;
     line-height: 1;
-    background: linear-gradient(180deg, rgba(94,234,212,.18), transparent 85%);
+    background: linear-gradient(180deg, rgba(255,255,255,.12), transparent 85%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

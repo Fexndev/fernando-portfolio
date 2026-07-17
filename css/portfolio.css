@@ -5,8 +5,8 @@
 /* ── HEADER / NAV ── */
 .header {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: #0d1117;
-    border-bottom: 1px solid var(--accent-bd);
+    background: #000000;
+    border-bottom: 1px solid rgba(255,255,255,.12);
 }
 .header-inner {
     max-width: var(--max); margin: 0 auto; padding: 0 var(--gap);
@@ -20,10 +20,10 @@
 
 .nav { display: flex; align-items: center; gap: 2rem; }
 .nav a {
-    font-size: .82rem; font-weight: 500; color: var(--g2);
+    font-size: .82rem; font-weight: 500; color: #aaaaaa;
     transition: color .2s var(--ease); position: relative;
 }
-.nav a:hover, .nav a.active { color: var(--accent); }
+.nav a:hover, .nav a.active { color: #ffffff; }
 .nav a::after {
     content: ''; position: absolute; bottom: -4px; left: 0;
     width: 0; height: 2px; background: var(--accent);
@@ -73,7 +73,7 @@
 }
 .hero::before {
     content: ''; position: absolute; inset: 0; pointer-events: none;
-    background: radial-gradient(ellipse at 50% 0%, rgba(94,234,212,.1) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.04) 0%, transparent 60%);
     transform: translateY(var(--parallax-y, 0));
     will-change: transform;
     z-index: 0;
@@ -108,9 +108,7 @@
 .hero h1 {
     font-size: clamp(2.2rem, 5.5vw, 3.4rem); font-weight: 800;
     line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 1.4rem;
-    background: linear-gradient(135deg, var(--white) 0%, var(--accent) 60%, var(--accent-lt) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
 }
 .hero p {
     font-size: 1.02rem; color: var(--g1); line-height: 1.8;
@@ -183,7 +181,7 @@
     font-size: .9rem; color: var(--g1); line-height: 1.9;
     margin-bottom: 1rem;
 }
-.sobre-text p strong { color: var(--accent); font-weight: 600; }
+.sobre-text p strong { color: #ffffff; font-weight: 600; }
 
 .diferencial-card {
     background: var(--bg-2);
@@ -334,8 +332,8 @@
 .parallax-bg {
     position: absolute; inset: 0; pointer-events: none;
     background:
-        radial-gradient(ellipse at 20% 20%, rgba(251,191,36,.05) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(94,234,212,.04) 0%, transparent 50%);
+        radial-gradient(ellipse at 20% 20%, rgba(255,255,255,.03) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(255,255,255,.02) 0%, transparent 50%);
     will-change: transform;
 }
 
@@ -501,7 +499,7 @@
 /* ── CTA / CONTATO ── */
 .cta {
     padding: 4rem 0 10rem;
-    background: linear-gradient(180deg, transparent, rgba(94,234,212,.03));
+    background: transparent;
     position: relative;
     overflow: hidden;
     min-height: 100vh; min-height: 100svh;
@@ -509,14 +507,11 @@
 }
 .cta .wrap { position: relative; z-index: 1; }
 .cta h2 {
-    background: linear-gradient(135deg, var(--white), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
 }
 .cta::before {
     content: ''; position: absolute; inset: 0; pointer-events: none;
-    background: radial-gradient(ellipse at 50% 100%, rgba(94,234,212,.06) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 50% 100%, rgba(255,255,255,.03) 0%, transparent 60%);
 }
 .cta-inner { position: relative; z-index: 1; }
 .cta h2 {
@@ -559,7 +554,7 @@
     color: var(--g3); font-size: .78rem; font-weight: 500;
     transition: color .2s var(--ease);
 }
-.footer-links a:hover { color: var(--accent); }
+.footer-links a:hover { color: #ffffff; }
 .footer p {
     font-size: .68rem; color: var(--g3);
 }
